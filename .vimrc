@@ -18,6 +18,8 @@ Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'xolox/vim-easytags'
 Plugin 'xolox/vim-misc'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'severin-lemaignan/vim-minimap'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -36,7 +38,7 @@ filetype plugin indent on    " required
 
 
 "NERDTree
-autocmd vimenter * NERDTree
+"autocmd vimenter * NERDTree
 map <C-n> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
@@ -64,13 +66,13 @@ let g:UltiSnipsJumpBackwardTrigger="<C-tab>"
 "airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
+
 "some tab settings
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
-set tabstop=4 shiftwidth=4 expandtab
+set expandtab
 
- 
 set si
 set wrap
 
@@ -78,13 +80,11 @@ colorscheme badwolf
 highligh ColorColumn ctermbg=darkgray
 
 
-
 "from hiki
  if v:lang =~ "utf8$" || v:lang =~ "UTF-8$"
    set fileencodings=ucs-bom,utf-8,latin1
 endif
 
-"set nocompatible	" Use Vim defaults (much better!)
 set bs=indent,eol,start		" allow backspacing over everything in insert mode
 "set ai			" always set autoindenting on
 "set backup		" keep a backup file
@@ -136,6 +136,6 @@ nmap <leader>bq :bp <BAR> bd #<CR>
 " Show all open buffers and their status
 nmap <leader>bl :ls<CR>
 
-
+"Copy/paste from system clipboard
 "map <C-v> "+p
 "map <C-c> "+y
