@@ -9,7 +9,7 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'scrooloose/nerdtree'		""https://github.com/scrooloose/nerdtree
+Plugin 'scrooloose/nerdtree'		"https://github.com/scrooloose/nerdtree
 Bundle 'jistr/vim-nerdtree-tabs'
 Plugin 'bling/vim-airline' 		"https://github.com/vim-airline/vim-airline
 Plugin 'scrooloose/syntastic'		"https://github.com/vim-syntastic/syntastic
