@@ -9,16 +9,16 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdtree'		""https://github.com/scrooloose/nerdtree
 Bundle 'jistr/vim-nerdtree-tabs'
-Plugin 'bling/vim-airline'
-Plugin 'scrooloose/syntastic'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'SirVer/ultisnips'
+Plugin 'bling/vim-airline' 		"https://github.com/vim-airline/vim-airline
+Plugin 'scrooloose/syntastic'		"https://github.com/vim-syntastic/syntastic
+Plugin 'Valloric/YouCompleteMe'		"https://github.com/Valloric/YouCompleteMe
+Plugin 'SirVer/ultisnips' 		"https://github.com/SirVer/ultisnips
 Plugin 'honza/vim-snippets'
-Plugin 'xolox/vim-easytags'
+Plugin 'xolox/vim-easytags' 		"https://github.com/xolox/vim-easytags
 Plugin 'xolox/vim-misc'
-Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdcommenter'	"https://github.com/scrooloose/nerdcommenter
 Plugin 'severin-lemaignan/vim-minimap'
 
 " All of your Plugins must be added before the following line
@@ -35,6 +35,7 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
+
 
 
 "NERDTree
@@ -76,6 +77,7 @@ set expandtab
 set si
 set wrap
 
+"http://stevelosh.com/projects/badwolf/ to ~/.vim/colors
 colorscheme badwolf
 highligh ColorColumn ctermbg=darkgray
 
