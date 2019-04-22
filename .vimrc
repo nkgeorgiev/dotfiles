@@ -1,5 +1,6 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
+filetype plugin on
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -9,16 +10,16 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'scrooloose/nerdtree'            "https://github.com/scrooloose/nerdtree
+Plugin 'scrooloose/nerdtree'		"https://github.com/scrooloose/nerdtree
 Bundle 'jistr/vim-nerdtree-tabs'
-Plugin 'bling/vim-airline'              "https://github.com/vim-airline/vim-airline
-Plugin 'scrooloose/syntastic'           "https://github.com/vim-syntastic/syntastic
-Plugin 'Valloric/YouCompleteMe'         "https://github.com/Valloric/YouCompleteMe
-Plugin 'SirVer/ultisnips'               "https://github.com/SirVer/ultisnips
+Plugin 'bling/vim-airline' 		"https://github.com/vim-airline/vim-airline
+"Plugin 'scrooloose/syntastic'		"https://github.com/vim-syntastic/syntastic
+Plugin 'Valloric/YouCompleteMe'		"https://github.com/Valloric/YouCompleteMe
+Plugin 'SirVer/ultisnips' 		"https://github.com/SirVer/ultisnips
 Plugin 'honza/vim-snippets'
-Plugin 'xolox/vim-easytags'             "https://github.com/xolox/vim-easytags
+Plugin 'xolox/vim-easytags' 		"https://github.com/xolox/vim-easytags
 Plugin 'xolox/vim-misc'
-Plugin 'scrooloose/nerdcommenter'       "https://github.com/scrooloose/nerdcommenter
+Plugin 'scrooloose/nerdcommenter'	"https://github.com/scrooloose/nerdcommenter
 Plugin 'severin-lemaignan/vim-minimap'
 Plugin 'rdnetto/YCM-Generator'
 Plugin 'lyuts/vim-rtags'
@@ -71,10 +72,48 @@ let g:UltiSnipsJumpBackwardTrigger="<C-tab>"
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 
+"nerdcommenter
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+
+" " Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+
+" " Align line-wise comment delimiters flush left instead of following code
+" indentation
+let g:NERDDefaultAlign = 'left'
+
+" " Add your own custom formats or override the defaults
+let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+
+" " Allow commenting and inverting empty lines (useful when commenting a
+" region)
+let g:NERDCommentEmptyLines = 1
+
+" " Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+
+" " Enable NERDCommenterToggle to check all selected lines is commented or not 
+let g:NERDToggleCheckAllLines = 1
+
 " fzf + ripgrep
 
 set rtp+=~/.fzf
-command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1,<bang>0)
+
+
+
+ let g:rg_command = '
+     \ rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --color "always"
+     \ -g "*.{ts,js,json,php,md,styl,pug,jade,html,config,py,cpp,c,go,hs,rb,conf,fa,lst}"
+     \ -g "!{.config,.git,node_modules,vendor,build,yarn.lock,*.sty,*.bst,*.coffee,dist}/*" 
+     \ -g "!build-clang/*"'
+
+ command! -bang -nargs=* F call fzf#vim#grep(g:rg_command .shellescape(<q-args>), 1, <bang>0)
+
+
+
+
+
 "some tab settings
 set tabstop=3
 set softtabstop=3
@@ -94,13 +133,13 @@ highligh ColorColumn ctermbg=darkgray
    set fileencodings=ucs-bom,utf-8,latin1
 endif
 
-set bs=indent,eol,start         " allow backspacing over everything in insert mode
-"set ai                 " always set autoindenting on
-"set backup             " keep a backup file
-set viminfo='20,\"50    " read/write a .viminfo file, don't store more
-                        " than 50 lines of registers
-set history=50          " keep 50 lines of command line history
-set ruler               " show the cursor position all the time
+set bs=indent,eol,start		" allow backspacing over everything in insert mode
+"set ai			" always set autoindenting on
+"set backup		" keep a backup file
+set viminfo='20,\"50	" read/write a .viminfo file, don't store more
+			" than 50 lines of registers
+set history=50		" keep 50 lines of command line history
+set ruler		" show the cursor position all the time
 
 
 " Switch syntax highlighting on, when the terminal has colors
@@ -165,3 +204,9 @@ nmap <c-h> <c-w>h<BAR>
 nmap <c-l> <c-w>l<BAR>
 
 map <C-P> :Files<CR>
+
+"nerdcommenter
+" <leader>cc - comment
+" <leader>cu - uncomment
+" <leader>ci - toggle comment
+"
