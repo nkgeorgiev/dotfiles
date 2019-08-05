@@ -2,53 +2,17 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 filetype plugin on
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'scrooloose/nerdtree'		"https://github.com/scrooloose/nerdtree
-Bundle 'jistr/vim-nerdtree-tabs'
-Plugin 'bling/vim-airline' 		"https://github.com/vim-airline/vim-airline
-"Plugin 'scrooloose/syntastic'		"https://github.com/vim-syntastic/syntastic
-Plugin 'Valloric/YouCompleteMe'		"https://github.com/Valloric/YouCompleteMe
-Plugin 'SirVer/ultisnips' 		"https://github.com/SirVer/ultisnips
-Plugin 'honza/vim-snippets'
-Plugin 'xolox/vim-easytags' 		"https://github.com/xolox/vim-easytags
-Plugin 'xolox/vim-misc'
-Plugin 'scrooloose/nerdcommenter'	"https://github.com/scrooloose/nerdcommenter
-Plugin 'severin-lemaignan/vim-minimap'
-Plugin 'rdnetto/YCM-Generator'
-Plugin 'lyuts/vim-rtags'
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-
-"set runtimepath^=~/.vim/bundle/ctrlp.vim
-
-"let g:ctrlp_map = '<c-p>'
-"let g:ctrlp_cmd = 'CtrlP'
-"let g:ctrlp_root_markers = ['.p4config']
-
 
 call plug#begin('~/.vim/plugged')
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'scrooloose/nerdtree'		"https://github.com/scrooloose/nerdtree
+Plug 'bling/vim-airline' 		"https://github.com/vim-airline/vim-airline
+Plug 'Valloric/YouCompleteMe'		"https://github.com/Valloric/YouCompleteMe
+Plug 'SirVer/ultisnips' 		"https://github.com/SirVer/ultisnips
+Plug 'xolox/vim-misc'
+Plug 'scrooloose/nerdcommenter'	"https://github.com/scrooloose/nerdcommenter
 
 call plug#end()
 "NERDTree
@@ -101,7 +65,7 @@ let g:NERDToggleCheckAllLines = 1
 set rtp+=~/.fzf
 
 
-
+" https://medium.com/@crashybang/supercharge-vim-with-fzf-and-ripgrep-d4661fc853d2
  let g:rg_command = '
      \ rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --color "always"
      \ -g "*.{ts,js,json,php,md,styl,pug,jade,html,config,py,cpp,c,go,hs,rb,conf,fa,lst}"
@@ -124,7 +88,7 @@ set si
 set wrap
 
 "http://stevelosh.com/projects/badwolf/ to ~/.vim/colors
-colorscheme badwolf
+"colorscheme badwolf
 highligh ColorColumn ctermbg=darkgray
 
 
@@ -210,3 +174,4 @@ map <C-P> :Files<CR>
 " <leader>cu - uncomment
 " <leader>ci - toggle comment
 "
+
